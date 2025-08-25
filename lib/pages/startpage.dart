@@ -27,6 +27,38 @@ class _StartpageState extends State<Startpage> {
         preferredSize: Size.fromHeight(50),
         child: TopNavbar(titel: 'ToDo-App'),
       ),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            UserAccountsDrawerHeader(
+              accountName: Text('@Finn'),
+              accountEmail: Text('finn@finn.de'),
+              currentAccountPicture: InkWell(
+                onTap: () {},
+                child: CircleAvatar(child: Text('F'), radius: 50),
+              ),
+              onDetailsPressed: () {},
+            ),
+            ListTile(
+              leading: Icon(Icons.create),
+              title: Text('Übersicht ToDo'),
+              onTap: () {
+                Navigator.pushNamed(context, '/');
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.add),
+              title: Text('Erstelle ein ToDo'),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text('Einstellungen'),
+              onTap: () {},
+            ),
+          ],
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           await Navigator.push(
@@ -45,7 +77,7 @@ class _StartpageState extends State<Startpage> {
             Flexible(
               flex: 2,
               child: Container(
-                width: width < 900 ? width*3.5 : width /1.5,
+                width: width < 900 ? width * 3.5 : width / 1.5,
 
                 child: GridView.count(
                   childAspectRatio: 5,

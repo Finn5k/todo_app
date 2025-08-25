@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app_finn/models/shared_preferences.dart';
 import 'package:todo_app_finn/pages/createTaskPage.dart';
+import 'package:todo_app_finn/pages/createUser.dart';
 import 'package:todo_app_finn/pages/startpage.dart';
 
 void main() {
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/CreateTask': (context) => CreateTaskPage(sh: sh,),
+        '/CreateUser': (context) => CreateUser(),
       },
       home: Startpage(sh: sh,),
     );
