@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app_finn/models/shared_preferences.dart';
+import 'package:todo_app_finn/models/user.dart';
 import 'package:todo_app_finn/pages/createTaskPage.dart';
 import 'package:todo_app_finn/pages/createUser.dart';
 import 'package:todo_app_finn/pages/loginPage.dart';
+import 'package:todo_app_finn/pages/startpage.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,6 +12,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   final SharedPref sh = SharedPref();
+  late final User benutzer;
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +21,11 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/CreateTask': (context) => CreateTaskPage(sh: sh,),
-        '/CreateUser': (context) => CreateUser(),
+        '/CreateUser': (context) => CreateUser(benutzer: benutzer,),
         '/Login' : (context) => LoginPage(),
       },
-      // home: Startpage(sh: sh,),
-      home: CreateUser(),
+      // home: Startpage(sh: sh,benutzer: benutzer,),
+      home: CreateUser(benutzer: benutzer,),
     );
   }
 }

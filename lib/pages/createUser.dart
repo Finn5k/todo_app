@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app_finn/design/EingabeFeldUser.dart';
+import 'package:todo_app_finn/models/user.dart';
 
 class CreateUser extends StatefulWidget {
+
+  User benutzer;
+
+  CreateUser({required this.benutzer});
+
   @override
   State<CreateUser> createState() => _CreateUserState();
+
 }
 
 class _CreateUserState extends State<CreateUser> {
@@ -23,6 +30,10 @@ class _CreateUserState extends State<CreateUser> {
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width;
     final double heigth = MediaQuery.of(context).size.height;
+
+    void createUser(String benutzername, String email, String passwort) {
+          widget.benutzer = new User(benutzerName: benutzername, email: email, password: passwort);
+    }
 
     return Scaffold(
       backgroundColor: Colors.blue,
@@ -90,9 +101,8 @@ class _CreateUserState extends State<CreateUser> {
                         minimumSize: const Size(150, 60),
                       ),
                       onPressed: () {
-                        print(benutzerNameController.text);
-                        print(emailController.text);
-                        print(passwortController.text);
+                        createUser(benutzerNameController.text.toString(), emailController.text.toString(), passwortController.text.toString());
+                        Navigator.pushNamed(context, '/');
                       },
                       child: const Text('Benutzer erstellen'),
                     ),

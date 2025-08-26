@@ -4,10 +4,13 @@ import 'package:todo_app_finn/models/categoryToDo.dart';
 import 'package:todo_app_finn/models/shared_preferences.dart';
 import 'package:todo_app_finn/pages/createTaskPage.dart';
 
+import '../models/user.dart';
+
 class Startpage extends StatefulWidget {
   final SharedPref sh;
+  User benutzer;
 
-  const Startpage({super.key, required this.sh});
+  Startpage({super.key, required this.sh, required this.benutzer});
 
   @override
   State<Startpage> createState() => _StartpageState();
@@ -31,8 +34,8 @@ class _StartpageState extends State<Startpage> {
         child: ListView(
           children: [
             UserAccountsDrawerHeader(
-              accountName: Text('@Finn'),
-              accountEmail: Text('finn@finn.de'),
+              accountName: Text('${widget.benutzer.benutzerName}'),
+              accountEmail: Text('${widget.benutzer.email}'),
               currentAccountPicture: InkWell(
                 onTap: () {},
                 child: CircleAvatar(child: Text('F'), radius: 50),
