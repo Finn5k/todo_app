@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app_finn/design/EingabeFeldUser.dart';
 
-class CreateUser extends StatefulWidget {
+class LoginPage extends StatefulWidget {
   @override
-  State<CreateUser> createState() => _CreateUserState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _CreateUserState extends State<CreateUser> {
+class _LoginPageState extends State<LoginPage> {
   bool _showInputPW = true;
   String _password = '';
   TextEditingController benutzerNameController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
   TextEditingController passwortController = TextEditingController();
 
 
@@ -34,7 +33,7 @@ class _CreateUserState extends State<CreateUser> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Registrieren',
+                'Login',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
               ),
               Container(
@@ -50,12 +49,6 @@ class _CreateUserState extends State<CreateUser> {
                       controller: benutzerNameController,
                       labelText: 'Benutzername',
                       hintText: 'Gib einen Benutzername ein',
-                      showInput: false,
-                    ),
-                    EingabeFeldUser(
-                      controller: emailController,
-                      labelText: 'E-Mail',
-                      hintText: 'Gib deine E-Mail ein',
                       showInput: false,
                     ),
                     TextFormField(
@@ -91,10 +84,9 @@ class _CreateUserState extends State<CreateUser> {
                       ),
                       onPressed: () {
                         print(benutzerNameController.text);
-                        print(emailController.text);
                         print(passwortController.text);
                       },
-                      child: const Text('Benutzer erstellen'),
+                      child: const Text('Einloggen'),
                     ),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
@@ -103,10 +95,10 @@ class _CreateUserState extends State<CreateUser> {
                         elevation: 3,
                       ),
                       onPressed: () {
-                        Navigator.pushNamed(context, '/Login');
+                        Navigator.pushNamed(context, '/CreateUser');
                       },
                       child: const Text(
-                        'Schon registriert? Logge dich hier ein',
+                        'Noch kein Konto? Jetzt registrieren',
                       ),
                     ),
                   ],
@@ -119,4 +111,3 @@ class _CreateUserState extends State<CreateUser> {
     );
   }
 }
-
