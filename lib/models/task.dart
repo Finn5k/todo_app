@@ -5,8 +5,9 @@ class Task {
   String beschreibung;
   bool isErledigt;
   CategoryToDo categoryTD;
+  DateTime ablaufDatum;
 
-  Task({required this.titel, required this.beschreibung, this.isErledigt = false, required this.categoryTD});
+  Task({required this.titel, required this.beschreibung, this.isErledigt = false, required this.categoryTD, required this.ablaufDatum});
 
   void toggleErledigt() {
     if(this.isErledigt){

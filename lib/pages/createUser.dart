@@ -90,9 +90,6 @@ class _CreateUserState extends State<CreateUser> {
                         minimumSize: const Size(150, 60),
                       ),
                       onPressed: () {
-                        print(benutzerNameController.text);
-                        print(emailController.text);
-                        print(passwortController.text);
                       },
                       child: const Text('Benutzer erstellen'),
                     ),

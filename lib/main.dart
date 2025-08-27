@@ -3,6 +3,7 @@ import 'package:todo_app_finn/models/shared_preferences.dart';
 import 'package:todo_app_finn/pages/createTaskPage.dart';
 import 'package:todo_app_finn/pages/createUser.dart';
 import 'package:todo_app_finn/pages/loginPage.dart';
+import 'package:todo_app_finn/pages/startpage.dart';
 
 void main() {
   runApp(MyApp());
@@ -21,8 +22,8 @@ class MyApp extends StatelessWidget {
         '/CreateUser': (context) => CreateUser(),
         '/Login' : (context) => LoginPage(),
       },
-      // home: Startpage(sh: sh,),
-      home: CreateUser(),
+      home: Startpage(sh: sh,),
+      // home: CreateUser(),
     );
   }
 }

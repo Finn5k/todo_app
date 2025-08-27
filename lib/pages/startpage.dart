@@ -126,26 +126,34 @@ class _StartpageState extends State<Startpage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               spacing: 10,
                               children: [
-                                Column(
-                                  children: [
-                                    Text(
-                                      'Titel: ${widget.sh.getTask(index).titel}',
-                                    ),
-                                    Text(
-                                      'Beschreibung: ${widget.sh.getTask(index).titel}',
-                                    ),
-                                    Text(
-                                      'Kategorie: ${widget.sh.getTask(index).categoryTD.categoryName}',
-                                    ),
-                                  ],
+                                Expanded(
+                                  flex: 4,
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'Titel: ${widget.sh.getTask(index).titel}',
+                                      ),
+                                      Text(
+                                        'Beschreibung: ${widget.sh.getTask(index).titel}',
+                                      ),
+                                      Text(
+                                        'Kategorie: ${widget.sh.getTask(index).categoryTD.categoryName}',
+                                      ),
+                                      Text('Ablaufdatum: ${widget.sh.getTask(index).ablaufDatum.day}.${widget.sh.getTask(index).ablaufDatum.month}.${widget.sh.getTask(index).ablaufDatum.year}')
+                                    ],
+                                  ),
                                 ),
-                                Checkbox(
-                                  value: widget.sh.getTask(index).isErledigt,
-                                  onChanged: (bool? v) {
-                                    setState(() {
-                                      widget.sh.getTask(index).toggleErledigt();
-                                    });
-                                  },
+                                Flexible(
+                                  flex: 1,
+                                  child: Checkbox(
+                                    value: widget.sh.getTask(index).isErledigt,
+                                    onChanged: (bool? v) {
+                                      setState(() {
+                                        widget.sh.getTask(index).toggleErledigt();
+                                      });
+                                    },
+                                  ),
                                 ),
                               ],
                             ),
